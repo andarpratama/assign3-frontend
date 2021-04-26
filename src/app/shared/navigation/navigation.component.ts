@@ -8,11 +8,10 @@ import * as $ from 'jquery'
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() {
-  }
+  constructor() { }
 
-   ngOnInit(): void {
-      $(document).ready(function() {
+  ngOnInit(): void {
+    $(document).ready(function() {
          $("#burger-toogle").each(function(_, navToggler) {
             var target = $(navToggler).data("target");
             $(navToggler).on("click", function() {
@@ -37,11 +36,10 @@ export class NavigationComponent implements OnInit {
                    result.classList.add('hidden')
                }
             })
-            
+
             })
          })
       });
-   }
-   
+  }
 
 }

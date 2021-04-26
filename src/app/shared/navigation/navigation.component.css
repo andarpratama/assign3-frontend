@@ -9,13 +9,13 @@
     scrollbar-width: none;  /* Firefox */
 }
 
-/* @media (min-width: 425px) { 
+/* @media (min-width: 425px) {
    .result-search {
       width: 24.55rem;
    }
 }
 
-@media (min-width: 576px) { 
+@media (min-width: 576px) {
    .result-search {
       width: 28rem;
    }
