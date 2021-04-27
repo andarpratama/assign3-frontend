@@ -92,8 +92,8 @@
 <nav class="">
   <div class="px-6 py-4 max-h-14 flex flex-row flex-nowrap overflow-x-scroll hide-scroll-bar items-center bg-gray-700 no-scrollbar">
     <a href="#" class="mr-6 px-4 py-1 flex-shrink-0 text-gray-200 hover:text-gray-50 bg-gray-800 rounded-3xl">All Categories</a>
-    <a href="#" class="mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">Basic Programming</a>
-    <a href="#" class="mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">UI / UX Designer</a>
+    <a href="{{ item.url }}" *ngFor="let item of categories" class="mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">{{ item.name }}</a>
+    <!-- <a href="#" class="mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">UI / UX Designer</a>
     <a href="#" class="mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">Frontend</a>
     <a href="#" class="mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">Backend</a>
     <a href="#" class="mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">Data Science</a>
@@ -103,6 +103,6 @@
     <a href="#" class="mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">Backend</a>
     <a href="#" class="mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">Data Science</a>
     <a href="#" class="mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">Basic Programming</a>
-    <a href="#" class="mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">UI / UX Designer</a>
+    <a href="#" class="mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">UI / UX Designer</a> -->
   </div>
 </nav>

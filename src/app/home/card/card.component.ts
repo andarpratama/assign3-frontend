@@ -9,13 +9,12 @@ import { CoursesModule } from '../courses.module';
 })
 export class CardComponent implements OnInit {
    @Input() item: CoursesModule
-   frontends : CoursesModule[]
    constructor(public rupiahFormat: RupiahFormatService) {}
 
    ngOnInit(): void {
-      
+
    }
-   
+
    generateRupiahFormat(bilangan:number) {
       let reverse:string = bilangan.toString().split('').reverse().join('')
       let ribuan:any = reverse.match(/\d{1,3}/g);

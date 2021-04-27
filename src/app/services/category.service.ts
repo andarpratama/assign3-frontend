@@ -11,39 +11,48 @@ export class CategoryService {
     return [
       {
         id: 1,
-        name: 'Basic Programming'
+        name: 'Basic Programming',
+        url: '#'
       },
       {
         id: 2,
-        name: 'UI / UX Designer'
+        name: 'UI / UX Designer',
+        url: '#'
       },
       {
         id: 3,
-        name: 'Frontend'
+        name: 'Frontend',
+        url: '#'
       },
       {
         id: 4,
-        name: 'Backend'
+        name: 'Backend',
+        url: '#'
       },
       {
         id: 5,
-        name: 'Data Science'
+        name: 'Data Science',
+        url: '#'
       },
       {
         id: 6,
-        name: 'Machine Learning'
+        name: 'Machine Learning',
+        url: '#'
       },
       {
         id: 7,
-        name: 'Web Programming'
+        name: 'Web Programming',
+        url: '#'
       },
       {
         id: 8,
-        name: 'Desktop Programming'
+        name: 'Desktop Programming',
+        url: '#'
       },
       {
         id: 9,
-        name: 'Mobile Programming'
+        name: 'Mobile Programming',
+        url: '#'
       },
     ]
   }

@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'profil', component: ProfilComponent },
   { path: 'cart', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'product', component: ProductComponent },
+  { path: 'courses', component: ProductComponent },
   { path: '**', component: PageNotfoundComponent }
 ];
 

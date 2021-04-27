@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery'
+import { CategoryService } from 'src/app/services/category.service';
+import { CategoryModule } from './category.module';
 
 @Component({
   selector: 'app-navigation',
@@ -7,10 +9,12 @@ import * as $ from 'jquery'
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-
-  constructor() { }
+  categories : CategoryModule[]
+  constructor(private categoryService : CategoryService) { }
 
   ngOnInit(): void {
+    this.categories = this.categoryService.getCategory();
+
     $(document).ready(function() {
          $("#burger-toogle").each(function(_, navToggler) {
             var target = $(navToggler).data("target");
