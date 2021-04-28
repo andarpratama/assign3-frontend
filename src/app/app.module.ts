@@ -22,6 +22,10 @@ import { PopularCourseComponent } from './product/popular-course/popular-course.
 import { ContainerProductComponent } from './product/container-product/container-product.component';
 import { FilterComponent } from './product/filter/filter.component';
 import { CardProductComponent } from './product/card-product/card-product.component';
+import { HeaderDetailpageComponent } from './detailpage/header-detailpage/header-detailpage.component';
+import { MainDetailpageComponent } from './detailpage/main-detailpage/main-detailpage.component';
+import { PreviewDetailpageComponent } from './detailpage/preview-detailpage/preview-detailpage.component';
+import { ContentDetailpageComponent } from './detailpage/content-detailpage/content-detailpage.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +48,11 @@ import { CardProductComponent } from './product/card-product/card-product.compon
     PopularCourseComponent,
     ContainerProductComponent,
     FilterComponent,
-    CardProductComponent
+    CardProductComponent,
+    HeaderDetailpageComponent,
+    MainDetailpageComponent,
+    PreviewDetailpageComponent,
+    ContentDetailpageComponent
   ],
   imports: [
     BrowserModule,

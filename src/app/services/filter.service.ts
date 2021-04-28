@@ -86,4 +86,28 @@ export class FilterService {
          ]
       }
    }
+
+   getFilterLevel() {
+      return {
+         title: 'Level',
+         items: [
+            {
+               option: 'All',
+               total: 330
+            },
+            {
+               option: 'Beginner',
+               total: 130
+            },
+            {
+               option: 'Intermediate',
+               total: 120
+            },
+            {
+               option: 'Expert',
+               total: 97
+            },
+         ]
+      }
+   }
 }

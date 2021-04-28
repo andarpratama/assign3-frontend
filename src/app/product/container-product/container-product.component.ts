@@ -12,6 +12,7 @@ export class ContainerProductComponent implements OnInit {
   filterHours : FilterModule
   filterTopic : FilterModule
   filterCategory : FilterModule
+  filterLevel : FilterModule
   course : any
   constructor(private filterService : FilterService, private courseService : CourseService) { }
 
@@ -19,6 +20,7 @@ export class ContainerProductComponent implements OnInit {
      this.filterHours = this.filterService.getFilterHours()
      this.filterTopic = this.filterService.getFilterTopic()
      this.filterCategory = this.filterService.getFilterCategory()
+     this.filterLevel = this.filterService.getFilterLevel()
      this.course = this.courseService.getCourseFrontend()
   }
 
