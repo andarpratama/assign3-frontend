@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="../assets/css/tailwind.css">
+   <title>Document</title>
+   <style>
+      .options-container::-webkit-scrollbar {
+         width: 8px;
+         background-color: #1F2937;
+         border-radius: 0 8px 8px 0;
+      }
+
+      .options-container::-webkit-scrollbar-thumb {
+         background-color: #4B5563;
+         border-radius: 0 8px 8px 0;
+      }
+   </style>
+</head>
+<body class="flex justify-center items-center" >
+   <div class="p-10" >
+      
+      <form action="" method="get">
+         <div class="selected select-box w-80">
+            <div class="flex justify-between items-center px-4 py-3 rounded-md mb-1 bg-gray-800 hover:bg-gray-700 cursor-pointer text-gray-100">
+               <span class="selected-text" >Select Course Category</span>
+               <svg class="fill-current h-5 w-5 text-gray-50 transform rotate-90" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M202.1 450a15 15 0 01-10.6-25.61L365.79 250.1 191.5 75.81a15 15 0 0121.21-21.21l184.9 184.9a15 15 0 010 21.21l-184.9 184.9A15 15 0 01202.1 450z" data-name="1" />
+               </svg>
+            </div>
+            <div class="options-container hidden rounded-md bg-gray-800 text-gray-100 h-64  overflow-y-scroll" >
+               <div class="option py-2 px-4 hover:bg-gray-700 ">
+                  <input type="radio" class="radio hidden" name="category" id="frontend" value="frontend" >
+                  <label for="frontend">Frontend Development</label>
+               </div>
+               <div class="option py-2 px-4 hover:bg-gray-700 ">
+                  <input type="radio" class="radio hidden" name="category" id="backend" value="backend" >
+                  <label for="backend">Backend Development</label>
+               </div>
+               <div class="option py-2 px-4 hover:bg-gray-700 ">
+                  <input type="radio" class="radio hidden" name="category" id="uiux" value="uiux" >
+                  <label for="uiux">UI / UX Design</label>
+               </div>
+               <div class="option py-2 px-4 hover:bg-gray-700 ">
+                  <input type="radio" class="radio hidden" name="category" id="11" value="11" >
+                  <label for="11">UI / UX Design</label>
+               </div>
+               <div class="option py-2 px-4 hover:bg-gray-700 ">
+                  <input type="radio" class="radio hidden" name="category" id="22" value="22" >
+                  <label for="22">UI / UX Design</label>
+               </div>
+               <div class="option py-2 px-4 hover:bg-gray-700 ">
+                  <input type="radio" class="radio hidden" name="category" id="33" value="33" >
+                  <label for="33">UI / UX Design</label>
+               </div>
+               <div class="option py-2 px-4 hover:bg-gray-700 ">
+                  <input type="radio" class="radio hidden" name="category" id="44" value="44" >
+                  <label for="44">UI / UX Design</label>
+               </div>
+               <div class="option py-2 px-4 hover:bg-gray-700 ">
+                  <input type="radio" class="radio hidden" name="category" id="55" value="55" >
+                  <label for="55">UI / UX Design</label>
+               </div>
+               <div class="option py-2 px-4 hover:bg-gray-700 ">
+                  <input type="radio" class="radio hidden" name="category" id="66" value="66" >
+                  <label for="66">UI / UX Design</label>
+               </div>
+               <div class="option py-2 px-4 hover:bg-gray-700 ">
+                  <input type="radio" class="radio hidden" name="category" id="77" value="77" >
+                  <label for="77">UI / UX Design</label>
+               </div>
+               <div class="option py-2 px-4 hover:bg-gray-700 ">
+                  <input type="radio" class="radio hidden" name="category" id="88" value="88" >
+                  <label for="88">UI / UX Design</label>
+               </div>
+            </div>
+         </div>
+         <button type="submit" >Submit</button>
+      </form>
+   </div>
+
+   <script>
+      const selected = document.querySelector('.selected');
+      const optionContainer = document.querySelector('.options-container')
+      const optionList = document.querySelectorAll('.option')
+
+      selected.addEventListener('click', () => {
+         optionContainer.classList.toggle('hidden')
+      })
+      
+      optionList.forEach( item => {
+         item.addEventListener('click', ()=> {
+            selectedText = selected.querySelector('.selected-text');
+            selectedText.innerHTML = item.querySelector('label').innerHTML
+            optionContainer.classList.remove('hidden')
+         })
+      } )
+   </script>
+</body>
+</html>

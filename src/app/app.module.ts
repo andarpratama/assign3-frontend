@@ -26,6 +26,7 @@ import { HeaderDetailpageComponent } from './detailpage/header-detailpage/header
 import { MainDetailpageComponent } from './detailpage/main-detailpage/main-detailpage.component';
 import { PreviewDetailpageComponent } from './detailpage/preview-detailpage/preview-detailpage.component';
 import { ContentDetailpageComponent } from './detailpage/content-detailpage/content-detailpage.component';
+import { ContainerCartComponent } from './cart/container-cart/container-cart.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { ContentDetailpageComponent } from './detailpage/content-detailpage/cont
     HeaderDetailpageComponent,
     MainDetailpageComponent,
     PreviewDetailpageComponent,
-    ContentDetailpageComponent
+    ContentDetailpageComponent,
+    ContainerCartComponent
   ],
   imports: [
     BrowserModule,

@@ -43,10 +43,11 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                </svg>
                <span class="pl-1 text-gray-500 text-md">0</span>
-            </a> -->
-
-        <a routerLink="/register" class="lg:my-0 lg:px-8 my-2 py-2 text-white rounded-3xl">Signup</a>
-        <a routerLink="/login" class="bg-indigo-500 text-white lg:my-0 my-2 px-8 py-2 rounded-3xl">Login</a>
+         </a> -->
+         <a routerLink="/login" class="border border-gray-400 py-3 px-8 hover:bg-indigo-600 rounded-full text-sm font-mitr text-gray-100 uppercase hover:text-white">Login</a>
+         <a routerLink="/register" class="mr-4 border-2 border-indigo-500 hover:border-indigo-600 bg-indigo-500 hover:bg-indigo-600 py-3 px-8 rounded-full text-sm font-mitr text-white uppercase">Register</a>
+         <!-- <a routerLink="/register" class="lg:my-0 lg:px-8 my-2 py-2 text-white rounded-3xl">Signup</a>
+         <a routerLink="/login" class="bg-indigo-500 text-white lg:my-0 my-2 px-8 py-2 rounded-3xl">Login</a> -->
       </div>
     </div>
 
@@ -91,18 +92,23 @@
 <!-- bottom nav -->
 <nav class="">
   <div class="px-6 py-4 max-h-14 flex flex-row flex-nowrap overflow-x-scroll hide-scroll-bar items-center bg-gray-700 no-scrollbar">
-    <a href="#" class="mr-6 px-4 py-1 flex-shrink-0 text-gray-200 hover:text-gray-50 bg-gray-800 rounded-3xl">All Categories</a>
-    <a href="{{ item.url }}" *ngFor="let item of categories" class="mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">{{ item.name }}</a>
-    <!-- <a href="#" class="mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">UI / UX Designer</a>
-    <a href="#" class="mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">Frontend</a>
-    <a href="#" class="mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">Backend</a>
-    <a href="#" class="mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">Data Science</a>
-    <a href="#" class="mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">Basic Programming</a>
-    <a href="#" class="mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">UI / UX Designer</a>
-    <a href="#" class="mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">Frontend</a>
-    <a href="#" class="mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">Backend</a>
-    <a href="#" class="mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">Data Science</a>
-    <a href="#" class="mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">Basic Programming</a>
-    <a href="#" class="mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">UI / UX Designer</a> -->
+   <div class="flex-shrink-0 absolute mr-6" >
+      <div class="selected  w-full cursor-pointer px-4 flex justify-between items-center text-gray-200 hover:text-gray-50 bg-gray-800 rounded-3xl" >
+         <span href="#" class=" mr-4 py-1 flex-shrink-0 ">All Categories</span>
+            <svg class="fill-current h-5 w-5 text-gray-50 transform rotate-90" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+               <path d="M202.1 450a15 15 0 01-10.6-25.61L365.79 250.1 191.5 75.81a15 15 0 0121.21-21.21l184.9 184.9a15 15 0 010 21.21l-184.9 184.9A15 15 0 01202.1 450z" data-name="1" />
+            </svg>
+      </div>
+      <div class="options-container w-96 pr-6 mt-3 absolute z-20 hidden pb-10">
+         <div class="w-full option rounded-b-md bg-gray-700 text-gray-100 h-64 overflow-y-scroll" >
+            <a href="/courses" *ngFor="let item of categories" class="inline-block w-full  cursor-pointer py-2 px-4 hover:bg-gray-800 ">
+               <span>{{ item.name }}</span>
+            </a>
+         </div>
+      </div>
+   </div>
+    <a href="{{ item.url }}" *ngFor="let item of categories" class="md:block mr-5 flex-shrink-0 text-gray-200 hover:text-gray-50"></a>
+    <a href="{{ item.url }}" *ngFor="let item of categories" class="md:block mr-6 flex-shrink-0 text-gray-200 hover:text-gray-50">{{ item.name }}</a>
+
   </div>
 </nav>
