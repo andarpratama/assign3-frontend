@@ -27,6 +27,10 @@ import { MainDetailpageComponent } from './detailpage/main-detailpage/main-detai
 import { PreviewDetailpageComponent } from './detailpage/preview-detailpage/preview-detailpage.component';
 import { ContentDetailpageComponent } from './detailpage/content-detailpage/content-detailpage.component';
 import { ContainerCartComponent } from './cart/container-cart/container-cart.component';
+import { HeaderPageComponent } from './shared/header-page/header-page.component';
+import { BreadcrumbdComponent } from './shared/breadcrumbd/breadcrumbd.component';
+import { MainProfileComponent } from './profil/main-profile/main-profile.component';
+import { MainCheckoutComponent } from './checkout/main-checkout/main-checkout.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +58,11 @@ import { ContainerCartComponent } from './cart/container-cart/container-cart.com
     MainDetailpageComponent,
     PreviewDetailpageComponent,
     ContentDetailpageComponent,
-    ContainerCartComponent
+    ContainerCartComponent,
+    HeaderPageComponent,
+    BreadcrumbdComponent,
+    MainProfileComponent,
+    MainCheckoutComponent
   ],
   imports: [
     BrowserModule,
