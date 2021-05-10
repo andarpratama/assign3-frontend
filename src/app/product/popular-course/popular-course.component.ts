@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CoursesModule } from 'src/app/home/courses.module';
 import { CourseService } from 'src/app/services/course.service';
-import { PopularCourseModule } from './popular-course.module';
 
 @Component({
   selector: 'app-popular-course',
@@ -8,7 +8,7 @@ import { PopularCourseModule } from './popular-course.module';
   styleUrls: ['./popular-course.component.css']
 })
 export class PopularCourseComponent implements OnInit {
-  popularcourse : PopularCourseModule[]
+  popularcourse : CoursesModule[]
   constructor( private courseService : CourseService ) { }
 
   ngOnInit(): void {

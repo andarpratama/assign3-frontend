@@ -21,7 +21,9 @@ export class ContainerProductComponent implements OnInit {
      this.filterTopic = this.filterService.getFilterTopic()
      this.filterCategory = this.filterService.getFilterCategory()
      this.filterLevel = this.filterService.getFilterLevel()
-     this.course = this.courseService.getCourseFrontend()
+     this.course = this.courseService.getAllCourse()
+     
+      
   }
 
 }

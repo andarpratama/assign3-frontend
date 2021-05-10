@@ -1,57 +1,67 @@
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 <div class="bg-gray-100 text-gray-500  h-screen shadow-xl w-full overflow-hidden">
   <div class="md:flex w-full h-screen">
-    <div class="h-screen lg:flex justify-center items-center lg:block hidden  w-1/2 bg-indigo-500 py-10 px-10">
+    <div class="h-screen lg:flex justify-center items-center hidden  w-1/2 bg-indigo-500 py-10 px-10">
       <img class="w-9/12" src="../../assets/img/img-01.png" alt="">
     </div>
     <div class="w-ful flex justify-center items-center h-screen md:w-1/2 py-10 px-5 md:px-10">
-      <div>
+      
+
+      <form class="text-center" (ngSubmit)="onRegister()" #formResult="ngForm" >
         <div class="text-center mb-10">
           <h1 class="font-bold text-3xl text-gray-900">REGISTER</h1>
           <p>Enter your information to register</p>
         </div>
         <div>
-          <div class="flex -mx-3">
+          <div class="flex -mx-3 text-left">
             <div class="w-1/2 px-3 mb-5">
-              <label for="" class="text-xs font-semibold px-1">First name</label>
+              <label for="firstname" class="text-xs font-semibold px-1">First name</label>
               <div class="flex">
                 <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
-                <input type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-3xl border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="John">
+                <input type="text" #firstname="ngModel" id="firstname" ngModel name="firstname" required class="w-full -ml-10 pl-10 pr-3 py-2 rounded-3xl border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="John">
               </div>
+              <span class="text-sm text-red-600 ml-4" *ngIf="!firstname.valid && firstname.touched">Firstname is required</span>
             </div>
             <div class="w-1/2 px-3 mb-5">
-              <label for="" class="text-xs font-semibold px-1">Last name</label>
+              <label for="lastname" class="text-xs font-semibold px-1">Last name</label>
               <div class="flex">
                 <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
-                <input type="text" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-3xl border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="Smith">
+                <input type="text" #lastname="ngModel" id="lastname" ngModel name="lastname" required class="w-full -ml-10 pl-10 pr-3 py-2 rounded-3xl border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="Smith">
               </div>
+              <span class="text-sm text-red-600 ml-4" *ngIf="!lastname.valid && lastname.touched">Lastname is required</span>
             </div>
           </div>
-          <div class="flex -mx-3">
+          <div class="flex -mx-3 text-left">
             <div class="w-full px-3 mb-5">
-              <label for="" class="text-xs font-semibold px-1">Email</label>
+              <label for="email" class="text-xs font-semibold px-1">Email</label>
               <div class="flex">
                 <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
-                <input type="email" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-3xl border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="johnsmith@example.com">
-              </div>
+                <input type="email" #email="ngModel" id="email" ngModel name="email" required email class="w-full -ml-10 pl-10 pr-3 py-2 rounded-3xl border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="johnsmith@example.com">
+               </div>
+               <span class="text-sm text-red-600 ml-4" *ngIf="!email.valid && email.touched" >Please input email and a valid email</span>
             </div>
           </div>
-          <div class="flex -mx-3">
+          <div class="flex -mx-3 text-left">
             <div class="w-full px-3 mb-12">
-              <label for="" class="text-xs font-semibold px-1">Password</label>
+              <label for="password" class="text-xs font-semibold px-1">Password</label>
               <div class="flex">
                 <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-lock-outline text-gray-400 text-lg"></i></div>
-                <input type="password" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-3xl border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="************">
+                <input type="password" #password="ngModel" id="password" autocomplete="on" ngModel name="password" required class="w-full -ml-10 pl-10 pr-3 py-2 rounded-3xl border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="************">
               </div>
+              <span class="text-sm text-red-600 ml-4" *ngIf="!password.valid && password.touched">Password is required</span>
             </div>
           </div>
           <div class="flex -mx-3">
             <div class="w-full px-3 mb-5">
-              <button class="block w-full bg-gradient-to-r from-indigo-500 to-blue-500 hover:from-pink-500 hover:to-yellow-500 transition duration-1000 text-white rounded-3xl px-3 py-3 font-semibold">REGISTER NOW</button>
+            <button [disabled]="!formResult.valid" [ngClass]="{'opacity-50': formResult.valid === false}" class=" block focus:outline-none w-full bg-gradient-to-r from-indigo-500 to-blue-500 transition duration-1000 text-white rounded-3xl px-3 py-3 font-semibold">REGISTER NOW</button>
+            <!-- <button disabled class="disabled:opacity-50 block focus:outline-none w-full bg-gradient-to-r from-indigo-500 to-blue-500 hover:from-pink-500 hover:to-yellow-500 transition duration-1000 text-white rounded-3xl px-3 py-3 font-semibold">REGISTER NOW</button> -->
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
+        <span class="inline-block text-gray-500" >Allready have a account? <a class="text-indigo-500" href="/login">Login</a></span>
+      </form>
+
+
+   </div>
+</div>
 </div>

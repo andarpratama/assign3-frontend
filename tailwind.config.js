@@ -2,6 +2,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
    theme: {
       extend: {
+         opacity: ['disabled'],
          fontWeight: ['hover', 'focus'],
          screens: {
             'xms': '320px',

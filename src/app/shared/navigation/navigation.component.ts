@@ -19,7 +19,6 @@ export class NavigationComponent implements OnInit {
       const selected = document.querySelector('.selected');
       const optionContainer = document.querySelector('.options-container')
       const optionList = document.querySelectorAll('.option')
-      console.log(selected)
       selected.addEventListener('click', () => {
          optionContainer.classList.toggle('hidden')
       })

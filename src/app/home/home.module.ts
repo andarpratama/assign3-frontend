@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from '../app-routing.module';
+import { HomeRoutingModule } from './home-routing.module';
+import { CardComponent } from './card/card.component';
+import { ContainerCardComponent } from './container-card/container-card.component';
+
 
 @NgModule({
   declarations: [
+    CardComponent,
+    ContainerCardComponent
   ],
-   imports: [
-      BrowserModule,
-      CommonModule,
-      AppRoutingModule,
+  imports: [
+    CommonModule,
+    HomeRoutingModule
   ]
 })
-export class HomeModule {
-   
- }
+export class HomeModule { }
