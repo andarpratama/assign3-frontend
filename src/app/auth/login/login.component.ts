@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,14 +8,39 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  @ViewChild('formLogin') loginForm : NgForm
-  constructor() { }
+  // @ViewChild('formLogin') loginForm : NgForm
+  formGroup: FormGroup
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.initForm()
   }
-   
-  onLogin(){
-     console.log(this.loginForm)
+  initForm(){
+    this.formGroup = new FormGroup({
+      email: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required])
+    })
   }
+
+  onLogin() {
+    if (this.formGroup.valid) {
+      this.authService.login(this.formGroup.value)
+    }
+  }
+
+  // onLogin() {
+  //   if (this.formGroup.valid) {
+  //     this.authService.login(this.formGroup.value).subscribe((response) => {
+  //       if (response.success) {
+  //         console.log(response.data.bearerToken)
+  //         alert(response.message)
+  //       } else {
+  //         console.log(response)
+  //         alert(response.message)
+  //       }
+  //     })
+  //   }
+  // }
+
 
 }

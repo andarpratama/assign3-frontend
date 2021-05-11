@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery'
+import { AuthService } from 'src/app/auth/auth.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { CategoryModule } from './category.module';
 
@@ -9,38 +10,39 @@ import { CategoryModule } from './category.module';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-  categories : CategoryModule[]
-  constructor(private categoryService : CategoryService) { }
+  categories: CategoryModule[]
+  userIsAuthenticated = false
+  constructor(private categoryService : CategoryService, private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.userIsAuthenticated = this.authService.getIsAuth()
     this.categories = this.categoryService.getCategory();
 
      $(document).ready(function () {
-      const selected = document.querySelector('.selected');
-      const optionContainer = document.querySelector('.options-container')
-      const optionList = document.querySelectorAll('.option')
-      selected.addEventListener('click', () => {
-         optionContainer.classList.toggle('hidden')
-      })
-      
-        
-      
-      optionList.forEach( item => {
-         item.addEventListener('click', ()=> {
-            const selectedText = selected.querySelector('.selected-text');
-            selectedText.innerHTML = item.querySelector('label').innerHTML
-            optionContainer.classList.remove('hidden')
-         })
-      })
-        
-         $("#burger-toogle").each(function(_, navToggler) {
-            var target = $(navToggler).data("target");
-            $(navToggler).on("click", function() {
-               $(target).animate({
-               height: "toggle"
-               });
-            });
-         });
+        const selected = document.querySelector('.selected');
+        const optionContainer = document.querySelector('.options-container')
+        const optionList = document.querySelectorAll('.option')
+        selected.addEventListener('click', () => {
+          optionContainer.classList.toggle('hidden')
+        })
+
+
+        optionList.forEach( item => {
+          item.addEventListener('click', ()=> {
+              const selectedText = selected.querySelector('.selected-text');
+              selectedText.innerHTML = item.querySelector('label').innerHTML
+              optionContainer.classList.remove('hidden')
+          })
+        })
+
+        $("#burger-toogle").each(function(_, navToggler) {
+          var target = $(navToggler).data("target");
+          $(navToggler).on("click", function() {
+              $(target).animate({
+              height: "toggle"
+              });
+          });
+        });
 
          const searchInput = document.querySelectorAll('.search')
          searchInput.forEach((s) => {
@@ -61,6 +63,10 @@ export class NavigationComponent implements OnInit {
             })
          })
       });
+  }
+
+  onLogout(): void {
+    this.authService.logout();
   }
 
 }

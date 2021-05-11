@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -7,22 +8,28 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  @ViewChild('formResult') registerForm : NgForm
-  constructor() { }
+  // @ViewChild('formResult') registerForm : NgForm
+  formGroup: FormGroup
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.initForm()
   }
-   
-   onRegister() {
 
-      const formValue = this.registerForm.form.value;
-      
-      if (!this.registerForm.valid) {
-         console.log('Invalid')
-         return false
-      } else {
-         console.log('Valid')
-      }
-   }
+  initForm(){
+    this.formGroup = new FormGroup({
+      name: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required])
+    })
+  }
+
+  onRegister() {
+    if (this.formGroup.valid) {
+      this.authService.createUser(this.formGroup.value)
+    }
+  }
+
+
 
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { DetailRoutingModule } from './detail/detail-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { HomepageModule } from './homepage/homepage.module';
 import { ProfileModule } from './profile/profile.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { ProfileModule } from './profile/profile.module';
     AuthModule,
     HomepageModule,
     DetailRoutingModule,
-    ProfileModule
+    ProfileModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
