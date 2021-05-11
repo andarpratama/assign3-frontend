@@ -16,6 +16,10 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     AuthRoutingModule,
     FormsModule
+   ],
+   exports: [
+      RegisterComponent,
+      LoginComponent
   ]
 })
 export class AuthModule { }

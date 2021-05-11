@@ -1,0 +1,19 @@
+<div class="px-6 pb-8 pt-10 w-screen bg-indigo-50">
+  <div class="px-2 flex items-center justify-between">
+    <h1 class="text-2xl font-extralight">Frontend Courses</h1>
+    <a href="/courses" class="bg-indigo-200 hover:bg-indigo-400 text-gray-700 hover:text-gray-100 px-3 py-1 rounded-2xl text-sm transition-all duration-300">See all</a>
+  </div>
+  <hr class="mt-2 mb-4 border-gray-300 shadow-lg mx-2">
+
+  <app-card-home *ngFor="let item of frontends" [item]="item"></app-card-home>
+</div>
+
+<div class="px-6 pb-8 pt-10 w-screen bg-indigo-50">
+  <div class="px-2 flex items-center justify-between">
+    <h1 class="text-2xl font-extralight">Backend Courses</h1>
+    <a href="/courses" class="bg-indigo-200 hover:bg-indigo-400 text-gray-700 hover:text-gray-100 px-3 py-1 rounded-2xl text-sm transition-all duration-300">See all</a>
+  </div>
+  <hr class="mt-2 mb-4 border-gray-300 shadow-lg mx-2">
+
+  <app-card-home *ngFor="let item of backends" [item]="item"></app-card-home>
+</div>
