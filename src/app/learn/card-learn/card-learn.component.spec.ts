@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeaderProfileComponent } from './header-profile.component';
+import { CardLearnComponent } from './card-learn.component';
 
-describe('HeaderProfileComponent', () => {
-  let component: HeaderProfileComponent;
-  let fixture: ComponentFixture<HeaderProfileComponent>;
+describe('CardLearnComponent', () => {
+  let component: CardLearnComponent;
+  let fixture: ComponentFixture<CardLearnComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderProfileComponent ]
+      declarations: [ CardLearnComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderProfileComponent);
+    fixture = TestBed.createComponent(CardLearnComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

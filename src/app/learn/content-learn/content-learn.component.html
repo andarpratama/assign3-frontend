@@ -1,0 +1,12 @@
+<div class="px-20 pb-8 pt-5 w-screen ">
+  <div class="px-2 flex items-center justify-between">
+    <div>
+      <button class="px-6 py-2 border border-gray-600 rounded-md mr-4">Filter</button>
+      <button class="px-6 py-2 border border-gray-600 rounded-md">Short</button>
+    </div>
+    <!-- <a href="/courses" class="bg-indigo-200 hover:bg-indigo-400 text-gray-700 hover:text-gray-100 px-3 py-1 rounded-2xl text-sm transition-all duration-300">See all</a> -->
+  </div>
+  <hr class="mt-4 mb-4 border-gray-300 shadow-lg mx-2">
+
+  <app-card-learn *ngFor="let item of mycourse" [item]="item" ></app-card-learn>
+</div>

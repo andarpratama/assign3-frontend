@@ -14,6 +14,7 @@ import { SharedModule } from './shared/shared.module';
 import { HomepageModule } from './homepage/homepage.module';
 import { ProfileModule } from './profile/profile.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LearnModule } from './learn/learn.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomepageModule,
     DetailRoutingModule,
     ProfileModule,
+    LearnModule,
     HttpClientModule,
     ReactiveFormsModule
   ],

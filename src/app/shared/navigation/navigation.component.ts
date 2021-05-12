@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery'
 import { AuthService } from 'src/app/auth/auth.service';
 import { CategoryService } from 'src/app/services/category.service';
+import { CourseService } from 'src/app/services/course.service';
 import { CategoryModule } from './category.module';
 
 @Component({
@@ -12,7 +13,11 @@ import { CategoryModule } from './category.module';
 export class NavigationComponent implements OnInit {
   categories: CategoryModule[]
   userIsAuthenticated = false
-  constructor(private categoryService : CategoryService, private authService: AuthService) { }
+  constructor(
+    private categoryService: CategoryService,
+    private authService: AuthService,
+    private courseService: CourseService
+  ) { }
 
   ngOnInit(): void {
     this.userIsAuthenticated = this.authService.getIsAuth()
@@ -67,6 +72,10 @@ export class NavigationComponent implements OnInit {
 
   onLogout(): void {
     this.authService.logout();
+  }
+
+  onClick() {
+    this.courseService.getAll()
   }
 
 }

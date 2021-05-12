@@ -5,7 +5,6 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { ContainerProfileComponent } from './container-profile/container-profile.component';
 import { SharedModule } from '../shared/shared.module';
 import { ContentProfileComponent } from './content-profile/content-profile.component';
-import { HeaderProfileComponent } from './header-profile/header-profile.component';
 import { FormProfileComponent } from './form-profile/form-profile.component';
 
 
@@ -13,7 +12,6 @@ import { FormProfileComponent } from './form-profile/form-profile.component';
   declarations: [
     ContainerProfileComponent,
     ContentProfileComponent,
-    HeaderProfileComponent,
     FormProfileComponent
   ],
   imports: [

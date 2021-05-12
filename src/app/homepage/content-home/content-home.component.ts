@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ICourse } from 'src/app/interface/ICourse';
 import { CoursesModule } from 'src/app/modules/course/course.module';
 import { CourseService } from 'src/app/services/course.service';
 
@@ -9,8 +10,8 @@ import { CourseService } from 'src/app/services/course.service';
 })
 export class ContentHomeComponent implements OnInit {
 
-  frontends : CoursesModule[]
-  backends : CoursesModule[]
+  frontends : ICourse[]
+  backends : ICourse[]
    constructor(private courseService : CourseService) {}
 
   ngOnInit(): void {

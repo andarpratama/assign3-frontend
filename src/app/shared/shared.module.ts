@@ -6,6 +6,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderPageComponent } from './header-page/header-page.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { PageNotfoundComponent } from './page-notfound/page-notfound.component';
+import { HeaderDetailComponent } from './header-detail/header-detail.component';
+import { CardComponent } from './card/card.component';
 
 
 
@@ -17,6 +19,8 @@ import { PageNotfoundComponent } from './page-notfound/page-notfound.component';
     HeaderPageComponent,
     NavigationComponent,
     PageNotfoundComponent,
+    HeaderDetailComponent,
+    CardComponent,
   ],
   imports: [
     CommonModule,
@@ -28,6 +32,8 @@ import { PageNotfoundComponent } from './page-notfound/page-notfound.component';
     HeaderPageComponent,
     NavigationComponent,
     PageNotfoundComponent,
+    HeaderDetailComponent,
+    CardComponent,
   ]
 })
 export class SharedModule { }
