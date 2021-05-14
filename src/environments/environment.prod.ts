@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiURL: 'https://andar-assignment3.herokuapp.com/'
 };

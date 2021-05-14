@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CoursesModule } from 'src/app/courses/courses.module';
-import { ICourses } from 'src/app/interface/ICourses';
+import { ICourses } from '../../../interface/ICourses';
 
 @Component({
   selector: 'app-card-learn',

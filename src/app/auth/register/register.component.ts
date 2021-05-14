@@ -8,7 +8,6 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  // @ViewChild('formResult') registerForm : NgForm
   formGroup: FormGroup
   constructor(private authService: AuthService) { }
 

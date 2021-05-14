@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery'
+import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { CourseService } from 'src/app/services/course.service';
@@ -13,6 +14,8 @@ import { CategoryModule } from './category.module';
 export class NavigationComponent implements OnInit {
   categories: CategoryModule[]
   userIsAuthenticated = false
+  private authListenerSubs: Subscription;
+
   constructor(
     private categoryService: CategoryService,
     private authService: AuthService,
@@ -20,8 +23,14 @@ export class NavigationComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.userIsAuthenticated = this.authService.getIsAuth()
     this.categories = this.categoryService.getCategory();
+
+    this.userIsAuthenticated = this.authService.getIsAuth();
+    this.authListenerSubs = this.authService
+      .getAuthStatusListener()
+      .subscribe(isAuthenticated => {
+        this.userIsAuthenticated = isAuthenticated;
+      });
 
      $(document).ready(function () {
         const selected = document.querySelector('.selected');

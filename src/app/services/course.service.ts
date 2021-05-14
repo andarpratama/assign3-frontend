@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { apiURL } from 'src/environments/environment';
-import { ICourses } from '../interface/ICourses';
+import { ICourses } from '../../interface/ICourses';
+import { environment } from '../../environments/environment';
+
+const apiURL = environment.apiURL
 
 @Injectable({
   providedIn: 'root'

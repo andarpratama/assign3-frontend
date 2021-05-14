@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { ContainerCartComponent } from './cart/container-cart/container-cart.component';
 import { MainCheckoutComponent } from './checkout/main-checkout/main-checkout.component';
 import { AuthModule } from './auth/auth.module';
 import { DetailRoutingModule } from './detail/detail-routing.module';
@@ -15,13 +13,14 @@ import { HomepageModule } from './homepage/homepage.module';
 import { ProfileModule } from './profile/profile.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LearnModule } from './learn/learn.module';
+import { CartModule } from './cart/cart.module';
+import { AuthInterceptor } from './auth/auth.interceptor';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CartComponent,
     CheckoutComponent,
-    ContainerCartComponent,
     MainCheckoutComponent,
   ],
   imports: [
@@ -33,10 +32,14 @@ import { LearnModule } from './learn/learn.module';
     DetailRoutingModule,
     ProfileModule,
     LearnModule,
+    CartModule,
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, deps: [AuthService ], multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

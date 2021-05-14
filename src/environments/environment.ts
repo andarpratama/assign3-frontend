@@ -3,10 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: true,
+  apiURL: 'https://andar-assignment3.herokuapp.com/'
 };
 
-export const apiURL = 'https://andar-assignment3.herokuapp.com/';
 
 /*
  * For easier debugging in development mode, you can import the following file
