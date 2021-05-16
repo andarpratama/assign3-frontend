@@ -49,7 +49,7 @@ export class CartService {
       console.log('deleting cart...')
       console.log(response)
       if (response.msg === "Pull new cart is success..") {
-        Swal.fire('Success', 'Delete this course to Cart..', 'success')
+        Swal.fire('Success', 'Delete this course from Cart..', 'success')
       }
       setTimeout(()=> window.location.reload(), 1000)
 

@@ -20,11 +20,12 @@
         <h2 class="text-md font-light truncate">Total Price</h2>
         <span class="text-3xl font-medium text-indigo-800 text-right">Rp {{ generateRp(totalPrice) }}</span>
       </div>
-      <a class="inline-block w-full mt-4" href="#">
+      <button (click)="addCourse()" class="inline-block w-full mt-4">
         <div class="buy-button mt-2 w-full left-0">
-          <a href="/checkout/success" class="w-full inline-block px-6 py-3 text-center rounded-b-lg border-gray-600 bg-indigo-700 hover:bg-indigo-600 text-indigo-50 hover:text-gray-50 transition duration-300 font-semibold">Complete Payment</a>
+          <!-- <a (click)="addCourse(courseCart)" href="/checkout/success" class="w-full inline-block px-6 py-3 text-center rounded-b-lg border-gray-600 bg-indigo-700 hover:bg-indigo-600 text-indigo-50 hover:text-gray-50 transition duration-300 font-semibold">Complete Payment</a> -->
+          <button class="w-full inline-block px-6 py-3 text-center rounded-b-lg border-gray-600 bg-indigo-700 hover:bg-indigo-600 text-indigo-50 hover:text-gray-50 transition duration-300 font-semibold">Complete Payment</button>
         </div>
-      </a>
+      </button>
     </div>
   </div>
 

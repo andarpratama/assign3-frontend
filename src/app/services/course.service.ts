@@ -6,6 +6,7 @@ import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { ICourse } from 'src/interface/ICourse';
+import Swal from 'sweetalert2';
 
 const apiURL = environment.apiURL
 
@@ -18,6 +19,24 @@ export class CourseService {
   private postsUpdated = new Subject<{ posts: ICourses[]}>();
 
   constructor(private http: HttpClient, private router: Router) { }
+
+  addCourse(id:string, idUser: string) {
+    return this.http.post<ICourses[]>(`${apiURL}checkout/add/${id}`, {idUser}).subscribe((response:any) => {
+      console.log(response)
+      if (response.msg === "Add new course is success..") {
+        Swal.fire('Success', 'Added this course to My Learn..', 'success')
+      }
+      setTimeout(()=> this.router.navigate(['/checkout/success']), 1000)
+    }, error => {
+      if (error) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something worng..!'
+        })
+      }
+    })
+  }
 
   getOneCourse(keyword:string):any {
     return this.http.get<ICourses[]>(`${apiURL}course/getone/${keyword}`)
