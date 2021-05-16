@@ -41,6 +41,27 @@ export class AuthService {
 
       Swal.fire('Success', 'Login success..', 'success')
     }, error => {
+      console.log(error)
+      console.log(error.error.message)
+      if (error.error.message === "Invalid Email: Please input valid Email") {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Your email is invalid!'
+        })
+      } else if (error.error.message === "Invalid Email: Your email is wrong or not registerd") {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Your email is wrong or not registerd!'
+        })
+      } else if (error.error.message === "Invalid Password: Your password is wrong") {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Your password is wrong!'
+        })
+      }
       this.authStatusListener.next(false);
     })
   }

@@ -33,7 +33,6 @@ export class ContentHomeComponent implements OnInit {
       .subscribe((result: any) => {
         this.loaderBackend = false
         this.backends = result
-      console.log(this.backends)
     })
 
   }

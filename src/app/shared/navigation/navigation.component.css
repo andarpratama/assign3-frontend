@@ -13,6 +13,20 @@
     display: none;
 }
 
+.loader {
+  position: fixed;
+  z-index: 99;
+  background-color: rgba(255, 255, 255, 0.377);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.loader img {
+  width: 100px;
+}
+
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
     -ms-overflow-style: none;  /* IE and Edge */

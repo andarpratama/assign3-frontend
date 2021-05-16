@@ -17,6 +17,7 @@ export class NavigationComponent implements OnInit {
   userIsAuthenticated = false
   cartCount: number = 0
   carts: []
+  loader: boolean = false
   private authListenerSubs: Subscription;
 
   constructor(
@@ -99,7 +100,12 @@ export class NavigationComponent implements OnInit {
   }
 
   onLogout(): void {
-    this.authService.logout();
+    this.loader = true
+    setTimeout(() => {
+      this.authService.logout();
+      this.loader = false
+    }, 2000)
+
   }
 
   onClick() {

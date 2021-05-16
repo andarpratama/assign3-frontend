@@ -22,7 +22,7 @@ export class CourseService {
   getPosts(keyword):any {
     return this.http.get<ICourses[]>(`${apiURL}course/getall`).pipe(
       map((courses: any) => {
-          const result =  courses.data
+          let result =  courses.data
           return result.filter((course) => course.devCategory === keyword)
       })
     )

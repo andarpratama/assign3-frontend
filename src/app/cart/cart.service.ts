@@ -31,7 +31,7 @@ export class CartService {
 
 
   getInfo(): any {
-    return this.http.get<ICourses[]>(`${apiURL}user/noauth/info/${this.userId}`)
+    return this.http.get<ICourses[]>(`${apiURL}user/info/${this.userId}`)
   }
 
   getCart():any {
