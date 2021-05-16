@@ -1,8 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { ICourses } from '../../interface/ICourses';
 import { environment } from '../../environments/environment';
+import { Router } from '@angular/router';
+import { map } from 'rxjs/operators';
+import { ICourse } from 'src/interface/ICourse';
 
 const apiURL = environment.apiURL
 
@@ -11,10 +14,35 @@ const apiURL = environment.apiURL
 })
 export class CourseService {
 
-  constructor(private http: HttpClient) { }
+  courses: ICourses[] = [];
+  private postsUpdated = new Subject<{ posts: ICourses[]}>();
+
+  constructor(private http: HttpClient, private router: Router) { }
+
+  getPosts(keyword):any {
+    return this.http.get<ICourses[]>(`${apiURL}course/getall`).pipe(
+      map((courses: any) => {
+          const result =  courses.data
+          return result.filter((course) => course.devCategory === keyword)
+      })
+    )
+  }
+
+  filterCourse(data: []) {
+    data.filter((result:any) => {
+      result.devCategory === "frontend"
+    })
+  }
+
    getAll(): Observable<ICourses[]> {
-      return this.http.get<ICourses[]>(`${apiURL}course/getall`);
-    }
+      return this.http.get<ICourses[]>(`${apiURL}course/getall`)
+   }
+
+  getFrontendCourse(): Observable<ICourses[]> {
+      return this.http.get<ICourses[]>(`${apiURL}course/filter/devcategory/frontend`)
+   }
+
+
 
    getAllCourse() {
       return [

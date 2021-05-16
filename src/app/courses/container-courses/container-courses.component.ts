@@ -22,7 +22,10 @@ export class ContainerCoursesComponent implements OnInit {
      this.filterTopic = this.filterService.getFilterTopic()
      this.filterCategory = this.filterService.getFilterCategory()
      this.filterLevel = this.filterService.getFilterLevel()
-     this.courseService.getAll().subscribe((result:any) => this.course = result.data )
+     this.courseService.getAll().subscribe((result:any) => {
+       this.course = result.data
+       console.log(this.course)
+     } )
   }
 
 }

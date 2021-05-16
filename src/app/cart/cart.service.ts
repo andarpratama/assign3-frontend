@@ -25,14 +25,13 @@ export class CartService {
     return this.authService.getToken()
   }
 
+  addCart() {
+    return this.http.get<ICourses[]>(`${apiURL}user/noauth/info/${this.userId}`);
+  }
 
-  getInfo(): Observable<ICourses[]> {
-    let header = new HttpHeaders().set(
-      "Authorization",
-       localStorage.getItem("token")
-    );
-    console.log(localStorage.getItem("token"))
-    return this.http.get<ICourses[]>(`${apiURL}user/info/${this.userId}`, {headers:header});
+
+  getInfo(): any {
+    return this.http.get<ICourses[]>(`${apiURL}user/noauth/info/${this.userId}`)
   }
 
   getCart():any {

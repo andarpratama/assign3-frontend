@@ -16,8 +16,9 @@ export class ContainerCartComponent implements OnInit {
 
 
   ngOnInit(): void {
-    // this.user = this.cartService.getUserId()
-    this.cartService.getInfo().subscribe((result:any) => this.userInfo = result.data )
+    this.cartService.getInfo().subscribe((result: any) => {
+      this.userInfo =  {data: result.data.cartId}
+    } )
   }
 
 }

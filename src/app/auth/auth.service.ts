@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import Swal from 'sweetalert2';
 import { environment } from '../../environments/environment';
 
 const apiURL:string = environment.apiURL
@@ -18,6 +19,46 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
+  login(data): any{
+    console.log('run login..')
+    this.http.post(`${apiURL}auth/login`, data).subscribe((response:any) => {
+      console.log(response)
+      // const token = response.data.token;
+      this.token = response.data.bearerToken
+      localStorage.setItem('token', response.data.bearerToken);
+      // console.log(this.token)
+      if (response.success) {
+        const expiresInDuration = response.data.expiresIn;
+        this.setAuthTimer(expiresInDuration);
+        this.isAuthenticated = true;
+        this.userId = response.data.userID;
+        this.authStatusListener.next(true);
+        const now = new Date();
+        const expirationDate = new Date( now.getTime() + expiresInDuration * 1000);
+        this.saveAuthData(this.token, expirationDate, this.userId);
+        this.router.navigate(['/']);
+      }
+
+      Swal.fire('Success', 'Login success..', 'success')
+    }, error => {
+      this.authStatusListener.next(false);
+    })
+  }
+
+  createUser(data): any {
+    console.log('run register..')
+    this.http.post(`${apiURL}auth/register`, data).subscribe((response:any) => {
+      if (response.success) {
+        console.log('run response..')
+        console.log(response)
+        this.router.navigate(['/auth/login']);
+      }
+      Swal.fire('Success', 'Register success..', 'success')
+    }, error => {
+      this.authStatusListener.next(false);
+    })
+  }
+
   getToken(): any {
     return this.token;
   }
@@ -32,42 +73,6 @@ export class AuthService {
 
   getAuthStatusListener(): any {
     return this.authStatusListener.asObservable();
-  }
-
-  login(data): any{
-    console.log('run login..')
-    this.http.post(`${apiURL}auth/login`, data).subscribe((response:any) => {
-      console.log(response)
-      const token = response.data.token;
-      this.token = response.data.bearerToken
-      console.log(this.token)
-      if (response.success) {
-        const expiresInDuration = response.data.expiresIn;
-        this.setAuthTimer(expiresInDuration);
-        this.isAuthenticated = true;
-        this.userId = response.data.userID;
-        this.authStatusListener.next(true);
-        const now = new Date();
-        const expirationDate = new Date( now.getTime() + expiresInDuration * 1000);
-        this.saveAuthData(this.token, expirationDate, this.userId);
-        this.router.navigate(['/']);
-      }
-    }, error => {
-      this.authStatusListener.next(false);
-    })
-  }
-
-  createUser(data): any {
-    console.log('run register..')
-    this.http.post(`${apiURL}auth/register`, data).subscribe((response:any) => {
-      if (response.success) {
-        console.log('run response..')
-        console.log(response)
-        this.router.navigate(['/auth/login']);
-      }
-    }, error => {
-      this.authStatusListener.next(false);
-    })
   }
 
   autoAuthUser(): any {

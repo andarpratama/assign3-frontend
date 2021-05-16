@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery'
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
+import { CartService } from 'src/app/cart/cart.service';
 import { CategoryService } from 'src/app/services/category.service';
 import { CourseService } from 'src/app/services/course.service';
 import { CategoryModule } from './category.module';
@@ -14,13 +15,16 @@ import { CategoryModule } from './category.module';
 export class NavigationComponent implements OnInit {
   categories: CategoryModule[]
   userIsAuthenticated = false
+  cartCount: number = 0
+  carts: []
   private authListenerSubs: Subscription;
 
   constructor(
     private categoryService: CategoryService,
     private authService: AuthService,
-    private courseService: CourseService
-  ) { }
+    private courseService: CourseService,
+    private cartService: CartService
+  ) {  }
 
   ngOnInit(): void {
     this.categories = this.categoryService.getCategory();
@@ -31,6 +35,12 @@ export class NavigationComponent implements OnInit {
       .subscribe(isAuthenticated => {
         this.userIsAuthenticated = isAuthenticated;
       });
+
+    this.cartService.getInfo().subscribe((result: any) => {
+      this.cartCount = result.data.cartId.length
+      this.carts = result.data.cartId
+      this.saveCarts(this.carts)
+    })
 
      $(document).ready(function () {
         const selected = document.querySelector('.selected');
@@ -77,6 +87,15 @@ export class NavigationComponent implements OnInit {
             })
          })
       });
+  }
+
+  saveCarts(carts) {
+    console.log('carts : '+ carts)
+    return this.carts = carts
+  }
+
+  loadItemCart() {
+    let carts = this.carts
   }
 
   onLogout(): void {

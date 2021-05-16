@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
         this.isLoading = false;
       }
     );
-
   }
 
   initForm(){
@@ -38,20 +37,4 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.formGroup.value)
     }
   }
-
-  // onLogin() {
-  //   if (this.formGroup.valid) {
-  //     this.authService.login(this.formGroup.value).subscribe((response) => {
-  //       if (response.success) {
-  //         console.log(response.data.bearerToken)
-  //         alert(response.message)
-  //       } else {
-  //         console.log(response)
-  //         alert(response.message)
-  //       }
-  //     })
-  //   }
-  // }
-
-
 }
