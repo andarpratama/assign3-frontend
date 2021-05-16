@@ -9,6 +9,7 @@ import { AuthService } from '../auth.service';
 })
 export class RegisterComponent implements OnInit {
   formGroup: FormGroup
+  isLoading = false;
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {

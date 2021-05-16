@@ -91,7 +91,7 @@ export class NavigationComponent implements OnInit {
   }
 
   saveCarts(carts) {
-    console.log('carts : '+ carts)
+    // console.log('carts : '+ carts)
     return this.carts = carts
   }
 

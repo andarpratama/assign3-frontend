@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from 'src/app/cart/cart.service';
 import { CourseService } from 'src/app/services/course.service';
 import { RupiahFormatService } from 'src/app/services/rupiah-format.service';
-import { CartService } from '../cart.service';
 
 @Component({
-  selector: 'app-content-cart',
-  templateUrl: './content-cart.component.html',
-  styleUrls: ['./content-cart.component.css']
+  selector: 'app-content-checkout',
+  templateUrl: './content-checkout.component.html',
+  styleUrls: ['./content-checkout.component.css']
 })
-export class ContentCartComponent implements OnInit {
+export class ContentCheckoutComponent implements OnInit {
+  cartCount:any
   carts: any
-  cartCount: any
   courseCart: any
   totalPrice: number = 0
   constructor(private cartService: CartService, private courseService: CourseService, private genRupiah: RupiahFormatService) { }
@@ -20,6 +20,7 @@ export class ContentCartComponent implements OnInit {
       this.cartCount = result.data.cartId.length
       this.carts = result.data.cartId
       this.getAllCart(this.carts)
+      console.log(this.carts)
     })
   }
 
@@ -33,7 +34,6 @@ export class ContentCartComponent implements OnInit {
       this.courseService.getOneCourse(id)
       .subscribe((result: any) => {
         this.courseCart.push(result.data)
-        console.log(result.data.price)
         this.totalPrice += result.data.price
         console.log(this.courseCart)
       })

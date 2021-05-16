@@ -24,7 +24,6 @@ export class ContainerCoursesComponent implements OnInit {
      this.filterLevel = this.filterService.getFilterLevel()
      this.courseService.getAll().subscribe((result:any) => {
        this.course = result.data
-       console.log(this.course)
      } )
   }
 

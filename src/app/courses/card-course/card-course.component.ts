@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth/auth.service';
+import { CartService } from 'src/app/cart/cart.service';
 
 @Component({
   selector: 'app-card-course',
@@ -7,10 +9,19 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CardCourseComponent implements OnInit {
   @Input() item: any
-  constructor() { }
+  userId: string;
+  constructor(private authService: AuthService, private cartService: CartService) { }
 
   ngOnInit(): void {
   }
+
+  addCart(id: string) {
+    console.log('run add cart...')
+    this.userId = this.authService.getUserId()
+    console.log(this.userId)
+    this.cartService.addCart(id, this.userId)
+  }
+
 
   generateRupiahFormat(bilangan:number) {
     let reverse:string = bilangan.toString().split('').reverse().join('')

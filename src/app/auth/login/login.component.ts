@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin() {
+    this.isLoading = true
     if (this.formGroup.valid) {
       this.authService.login(this.formGroup.value)
     }

@@ -5,7 +5,7 @@
         <img class="rounded-lg h-full w-full" src="{{ item.image }}" alt="">
       </div>
       <div class="pt-4 pb-4">
-        <a href="/detail">
+        <a href="" routerLink="/detail/{{ item._id }}">
           <h1 class="text-xl mb-1 font-light truncate">{{ item.title }}</h1>
         </a>
         <div class="flex mb-1 justify-between items-center">
@@ -20,9 +20,9 @@
           <span class="text-xs text-gray-500">&bull; {{ item.date }}</span>
         </div>
         <span class="text-2xl text-indigo-800 font-semibold">Rp {{ generateRupiahFormat(item.price) }}</span>
-        <a href="/cart">
+        <a (click)="addCart(item._id)" >
           <div class="buy-button mt-2 w-full left-0">
-            <button class="px-6 py-3 w-full rounded-b-lg border-gray-600 bg-indigo-100 hover:bg-indigo-400 text-indigo-300 hover:text-gray-50 transition duration-300">Add Cart</button>
+            <button  class="px-6 py-3 w-full rounded-b-lg border-gray-600 bg-indigo-100 hover:bg-indigo-400 text-indigo-300 hover:text-gray-50 transition duration-300">Add Cart</button>
           </div>
         </a>
       </div>

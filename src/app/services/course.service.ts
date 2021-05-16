@@ -19,6 +19,14 @@ export class CourseService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
+  getOneCourse(keyword:string):any {
+    return this.http.get<ICourses[]>(`${apiURL}course/getone/${keyword}`)
+  }
+
+  getDetail(keyword: string) {
+    return this.http.get<ICourses[]>(`${apiURL}course/getone/${keyword}`)
+  }
+
   getPosts(keyword):any {
     return this.http.get<ICourses[]>(`${apiURL}course/getall`).pipe(
       map((courses: any) => {

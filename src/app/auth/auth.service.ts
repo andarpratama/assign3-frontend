@@ -73,8 +73,8 @@ export class AuthService {
         console.log('run response..')
         console.log(response)
         this.router.navigate(['/auth/login']);
+        Swal.fire('Success', 'Register success..', 'success')
       }
-      Swal.fire('Success', 'Register success..', 'success')
     }, error => {
       this.authStatusListener.next(false);
     })

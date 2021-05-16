@@ -4,8 +4,8 @@ import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CheckoutComponent } from './checkout/checkout.component';
-import { MainCheckoutComponent } from './checkout/main-checkout/main-checkout.component';
+import { CheckoutComponent } from './checkouts/checkout.component';
+import { MainCheckoutComponent } from './checkouts/main-checkout/main-checkout.component';
 import { AuthModule } from './auth/auth.module';
 import { DetailRoutingModule } from './detail/detail-routing.module';
 import { SharedModule } from './shared/shared.module';
@@ -16,6 +16,7 @@ import { LearnModule } from './learn/learn.module';
 import { CartModule } from './cart/cart.module';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { AuthService } from './auth/auth.service';
+import { CheckoutModule } from './checkout/checkout.module';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AuthService } from './auth/auth.service';
     ProfileModule,
     LearnModule,
     CartModule,
+    CheckoutModule,
     HttpClientModule,
     ReactiveFormsModule
   ],

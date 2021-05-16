@@ -21,7 +21,7 @@ export class ContentHomeComponent implements OnInit {
 
   ngOnInit(): void {
     // this.frontends = this.courseService.getCourseFrontend()
-    this.backends = this.courseService.getCourseBackend()
+    // this.backends = this.courseService.getCourseBackend()
 
     this.courseService.getPosts('frontend')
       .subscribe((result: any) => {
